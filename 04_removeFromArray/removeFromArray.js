@@ -1,22 +1,19 @@
 /**
- *
+ * Remove elements from an Array
  * @param {Array} arr
- * @param {number} num
+ * @param  {...any} args
+ * @returns {Array}
  */
-const removeFromArray = function (arr, num) {
-  let target = arr.indexOf(num);
-  while (target !== -1) {
-    arr.splice(target, 1);
-    target = arr.indexOf(num);
+const removeFromArray = function (arr, ...args) {
+  for (arg of args) {
+    let target = arr.indexOf(arg);
+    while (target !== -1) {
+      arr.splice(target, 1);
+      target = arr.indexOf(arg);
+    }
   }
-  //   if (target !== -1) {
-  //     arr.splice(target, 1);
-  //   }
-  console.log(arr);
   return arr;
 };
-
-removeFromArray([1, 2, 2, 4], 2);
 
 // Do not edit below this line
 module.exports = removeFromArray;
