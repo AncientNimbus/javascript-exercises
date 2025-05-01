@@ -5,7 +5,7 @@
  * @returns {Array}
  */
 const removeFromArray = function (arr, ...args) {
-  for (arg of args) {
+  for (const arg of args) {
     let target = arr.indexOf(arg);
     while (target !== -1) {
       arr.splice(target, 1);
