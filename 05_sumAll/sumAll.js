@@ -7,16 +7,18 @@ const { isNumberObject } = require("util/types");
  * @returns {Number}
  */
 const sumAll = function (int1, int2) {
+  let numRange = [int1, int2].sort();
+
   let conditions =
-    int1 + int2 > 0 &&
-    typeof int1 === "number" &&
-    typeof int2 === "number" &&
-    int1 === Math.round(int1) &&
-    int2 === Math.round(int2);
+    numRange[0] + numRange[1] > 0 &&
+    typeof numRange[0] === "number" &&
+    typeof numRange[1] === "number" &&
+    numRange[0] === Math.round(numRange[0]) &&
+    numRange[1] === Math.round(numRange[1]);
 
   if (conditions) {
     let result = 0;
-    for (let i = int1; i <= int2; i++) {
+    for (let i = numRange[0]; i <= numRange[1]; i++) {
       result += i;
     }
     return result;
