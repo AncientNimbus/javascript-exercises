@@ -5,21 +5,21 @@
  * @returns {Number}
  */
 const sumAll = function (int1, int2) {
-  let numRange = [int1, int2].sort();
-  let checks = [];
+  let numRange = [int1, int2];
 
   // Requirements
   let isNumber = (num) => typeof num === "number";
   let isPositive = (num) => num > 0;
   let isInteger = (num) => num === Math.round(num);
 
-  numRange.forEach((i) => {
-    checks.push(isNumber(i) && isPositive(i) && isInteger(i));
-  });
+  const allValid = [int1, int2].every(
+    (i) => isNumber(i) && isPositive(i) && isInteger(i)
+  );
 
-  if (checks.every(Boolean)) {
+  if (allValid) {
+    const [min, max] = numRange.sort((a, b) => a - b);
     let result = 0;
-    for (let i = numRange[0]; i <= numRange[1]; i++) {
+    for (let i = min; i <= max; i++) {
       result += i;
     }
     return result;
